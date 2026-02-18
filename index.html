@@ -3,8 +3,43 @@
     <title>Football Hub</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
-    <h1>Welcome to the Football Hub</h1>
+    <header>
+        <h1>Equipos</h1>
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="equipos.html">Equipos</a>
+            <a href="tabla.html">Tabla</a>
+            <a href="partidos.html">Partidos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <main>
+        <section class="buscador">
+            <input type="text" id="searchInput" placeholder="Buscar equipo...">
+        </section>
+
+        <section class="filtro">
+            <select id="filterPais">
+                <option value="">Filtrar por país</option>
+                <option value="España">España</option>
+                <option value="Inglaterra">Inglaterra</option>
+                <option value="Italia">Italia</option>
+            </select>
+        </section>
+
+        <section id="listaEquipos" class="equipos-container"></section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>
