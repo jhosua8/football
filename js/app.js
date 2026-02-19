@@ -1,33 +1,21 @@
 import { cargarJSON } from "./data.js";
-import { mostrarEquipos } from "./ui.js";
+import { mostrarEquipos, mostrarTabla, mostrarPartidos } from "./ui.js";
+import { filtrarEquipos, ordenarTabla, filtrarPartidos } from "./filters.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-    if (document.getElementById("listaEquipos")) {
-        const equipos = await cargarJSON("../data/equipos.json");
-        mostrarEquipos(equipos);
-    }
-});
-
-import { filtrarEquipos } from "./filters.js";
-
-document.addEventListener("DOMContentLoaded", async () => {
+    // EQUIPOS
     if (document.getElementById("listaEquipos")) {
         const equipos = await cargarJSON("../data/equipos.json");
         mostrarEquipos(equipos);
 
         const search = document.getElementById("search");
-
-        search.addEventListener("input", () => {
-            const filtrados = filtrarEquipos(equipos, search.value);
-            mostrarEquipos(filtrados);
-        });
+        if (search) {
+            search.addEventListener("input", () => {
+                const filtrados = filtrarEquipos(equipos, search.value);
+                mostrarEquipos(filtrados);
+            });
+        }
     }
-});
-
-import { mostrarTabla } from "./ui.js";
-import { ordenarTabla } from "./filters.js";
-
-document.addEventListener("DOMContentLoaded", async () => {
 
     // TABLA
     if (document.getElementById("tabla")) {
@@ -41,5 +29,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 mostrarTabla(ordenados);
             });
         });
+    }
+
+    // PARTIDOS
+    if (document.getElementById("listaPartidos")) {
+        const partidos = await cargarJSON("../data/partidos.json");
+        mostrarPartidos(partidos);
+
+        const filtro = document.getElementById("filtroEquipo");
+        if (filtro) {
+            filtro.addEventListener("change", () => {
+                const filtrados = filtrarPartidos(partidos, filtro.value);
+                mostrarPartidos(filtrados);
+            });
+        }
     }
 });

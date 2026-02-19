@@ -23,3 +23,15 @@ export function mostrarTabla(datos) {
         cuerpo.appendChild(tr);
     });
 }
+
+export function mostrarPartidos(lista) {
+    const cont = document.getElementById("listaPartidos");
+    cont.innerHTML = "";
+
+    lista.forEach(p => {
+        const div = document.createElement("div");
+        div.classList.add("partidos-card");
+        div.textContent = `${p.local} vs ${p.visitante} - ${p.fecha}`;
+        cont.appendChild(div);
+    })
+}

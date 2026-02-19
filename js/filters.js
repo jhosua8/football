@@ -14,3 +14,11 @@ export function ordenarTabla(datos, columna) {
     }
     );
 }
+
+export function filtrarPartidos(partidos, equipo) {
+    return partidos.filter(p =>
+        equipo === "" ||
+        p.local === equipo ||
+        p.visitante === equipo
+    )
+}
