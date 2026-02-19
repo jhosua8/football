@@ -23,3 +23,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 });
+
+import { mostrarTabla } from "./ui.js";
+import { ordenarTabla } from "./filters.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    // TABLA
+    if (document.getElementById("tabla")) {
+        const datos = await cargarJSON("../data/tabla.json");
+        mostrarTabla(datos);
+
+        document.querySelectorAll("#tabla th").forEach(th => {
+            th.addEventListener("click", () => {
+                const col = th.dataset.col;
+                const ordenados = ordenarTabla(datos, col);
+                mostrarTabla(ordenados);
+            });
+        });
+    }
+});

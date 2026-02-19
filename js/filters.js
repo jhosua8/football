@@ -3,3 +3,14 @@ export function filtrarEquipos(equipos, texto) {
         eq.nombre.toLowerCase().includes(texto.toLowerCase())
     );
 }
+
+export function ordenarTabla(datos, columna) {
+    return datos.sort((a, b) => {
+        if (typeof a[columna] === number) {
+            return b[columna] - a[columna]; // Descendente
+        }
+        return a[columna].localeCompare(b[columna]); // Alfabético
+
+    }
+    );
+}

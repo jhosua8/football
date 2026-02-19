@@ -9,3 +9,17 @@ export function mostrarEquipos(lista) {
         cont.appendChild(div);
     });
 }
+
+export function mostrarTabla(datos) {
+    const cuerpo = document.querySelector("#tabla tbody");
+    cuerpo.innerHTML = "";
+
+    datos.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${item.equipo}</td>
+            <td>${item.puntos}</td>
+        `;
+        cuerpo.appendChild(tr);
+    });
+}
