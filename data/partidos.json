@@ -1,12 +1,12 @@
 [
     {
         "local": "FC Barcelona",
-        "Visitante": "Real Madrid",
+        "visitante": "Real Madrid",
         "fecha": "2026-02-10"
     },
     {
         "local": "Manchester City",
-        "Visitante": "FC Barcelona",
+        "visitante": "FC Barcelona",
         "fecha": "2026-02-15"
     }
 ]

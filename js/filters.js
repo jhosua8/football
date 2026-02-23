@@ -6,7 +6,7 @@ export function filtrarEquipos(equipos, texto) {
 
 export function ordenarTabla(datos, columna) {
     return datos.sort((a, b) => {
-        if (typeof a[columna] === number) {
+        if (typeof a[columna] === "number") {
             return b[columna] - a[columna]; // Descendente
         }
         return a[columna].localeCompare(b[columna]); // Alfabético
@@ -21,4 +21,9 @@ export function filtrarPartidos(partidos, equipo) {
         p.local === equipo ||
         p.visitante === equipo
     )
+}
+
+export function filtrarEquiposPorPais(equipos, pais) {
+    if (pais === "") return equipos;
+    return equipos.filter(eq => eq.pais === pais);
 }

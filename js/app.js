@@ -1,9 +1,9 @@
 import { cargarJSON } from "./data.js";
 import { mostrarEquipos, mostrarTabla, mostrarPartidos } from "./ui.js";
-import { filtrarEquipos, ordenarTabla, filtrarPartidos } from "./filters.js";
+import { filtrarEquipos, ordenarTabla, filtrarPartidos, filtrarEquiposPorPais } from "./filters.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // EQUIPOS
+    // equipos
     if (document.getElementById("listaEquipos")) {
         const equipos = await cargarJSON("../data/equipos.json");
         mostrarEquipos(equipos);
@@ -15,9 +15,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 mostrarEquipos(filtrados);
             });
         }
+        //filtro por país
+        const paisFiltro = document.getElementById("filtroPais");
+        if (paisFiltro) {
+            paisFiltro.addEventListener("change", () => {
+                const pais = paisFiltro.value;
+                const filtrados = filtrarEquiposPorPais(equipos, paisFiltro.value);
+                mostrarEquipos(filtrados);
+            });
+        }
     }
 
-    // TABLA
+    // tabla
     if (document.getElementById("tabla")) {
         const datos = await cargarJSON("../data/tabla.json");
         mostrarTabla(datos);
@@ -31,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    // PARTIDOS
+    // partidos
     if (document.getElementById("listaPartidos")) {
         const partidos = await cargarJSON("../data/partidos.json");
         mostrarPartidos(partidos);
@@ -45,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    // CONTACTO
+    // contacto
     if (document.getElementById("formContacto")) {
         const form = document.getElementById("formContacto");
         const resultado = document.getElementById("resultado");
