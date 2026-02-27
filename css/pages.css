@@ -6,6 +6,12 @@ h1 {
 #listaEquipos,
 #tabla,
 #listaPartidos {
+    padding: 15px;
+    margin-top: 20px;
+}
+
+#tabla,
+#listaPartidos {
     background: #fff;
     padding: 10px;
     border-radius: 6px;

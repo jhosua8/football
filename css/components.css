@@ -24,8 +24,20 @@ button:hover,
     background: #000;
 }
 
+button,
+.btn-volver {
+    margin-top: 20px;
+}
+
 .equipo-item,
 .partido-item {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+}
+
+input,
+select,
+textarea {
+    margin: 15px 0;
+    padding: 10px;
 }

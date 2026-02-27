@@ -10,3 +10,13 @@ body {
     color: #333;
     padding: 20px;
 }
+
+body {
+    line-height: 1.6;
+}
+
+section,
+div,
+form {
+    margin-bottom: 25px;
+}
