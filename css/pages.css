@@ -1,5 +1,27 @@
-input,
-select {
-    margin-bottom: 10px;
-    padding: 5px;
+h1 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+#listaEquipos,
+#tabla,
+#listaPartidos {
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    cursor: pointer;
 }
