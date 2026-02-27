@@ -1,14 +1,30 @@
 [
     {
-        "nombre": "FC Barcelona",
-        "pais": "España"
-    },
-    {
         "nombre": "Real Madrid",
         "pais": "España"
     },
     {
-        "nombre": "Manchester City",
-        "pais": "Inglaterra"
+        "nombre": "FC Barcelona",
+        "pais": "España"
+    },
+    {
+        "nombre": "Atlético de Madrid",
+        "pais": "España"
+    },
+    {
+        "nombre": "Mallorca",
+        "pais": "España"
+    },
+    {
+        "nombre": "Real Valladolid",
+        "pais": "España"
+    },
+    {
+        "nombre": "Las Palmas",
+        "pais": "España"
+    },
+    {
+        "nombre": "Athletic Club",
+        "pais": "España"
     }
 ]

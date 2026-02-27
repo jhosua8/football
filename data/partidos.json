@@ -1,12 +1,37 @@
 [
     {
-        "local": "FC Barcelona",
+        "local": "Mallorca",
         "visitante": "Real Madrid",
-        "fecha": "2026-02-10"
+        "fecha": "2024-08-18"
     },
     {
-        "local": "Manchester City",
+        "local": "Real Madrid",
+        "visitante": "Real Valladolid",
+        "fecha": "2024-08-25"
+    },
+    {
+        "local": "Las Palmas",
+        "visitante": "Real Madrid",
+        "fecha": "2024-09-01"
+    },
+    {
+        "local": "Real Madrid",
+        "visitante": "Athletic Club",
+        "fecha": "2024-09-15"
+    },
+    {
+        "local": "Atlético de Madrid",
+        "visitante": "Real Madrid",
+        "fecha": "2024-09-29"
+    },
+    {
+        "local": "Real Madrid",
         "visitante": "FC Barcelona",
-        "fecha": "2026-02-15"
+        "fecha": "2024-10-27"
+    },
+    {
+        "local": "FC Barcelona",
+        "visitante": "Real Madrid",
+        "fecha": "2025-05-11"
     }
 ]
