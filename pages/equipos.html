@@ -3,35 +3,109 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Equipos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos - FootballHub</title>
+
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/pages.css">
 </head>
 
-<body>
+<body class="home-body">
 
-    <h1>Equipos</h1>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/LaLiga_logo_2023.svg" alt="Logo LaLiga"
+                class="logo-laliga">
+            <h1 class="site-title">FootballHub</h1>
+        </div>
 
-    <input id="search" type="text" placeholder="Buscar equipo...">
-    <select id="filtroPais">
-        <option value="">Todos los países</option>
-        <option value="España">España</option>
-        <option value="Inglaterra">Inglaterra</option>
-    </select>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="equipos.html" class="active">Equipos</a></li>
+                <li><a href="partidos.html">Partidos</a></li>
+                <li><a href="tabla.html">Tabla</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="listaEquipos"></div>
+    <section class="equipos-filtros">
+        <h2>Equipos de LaLiga</h2>
 
-    <script type="module" src="../js/app.js"></script>
+        <div class="filtros-grid">
+            <div>
+                <label>Buscar equipo</label>
+                <input type="text" id="buscar-equipo" placeholder="Ej: Barcelona">
+            </div>
+
+            <div>
+                <label>Filtrar por región</label>
+                <select id="filtro-region">
+                    <option value="">Todas</option>
+                    <option value="Cataluña">Cataluña</option>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Andalucía">Andalucía</option>
+                    <option value="Valencia">Valencia</option>
+                    <option value="País Vasco">País Vasco</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section id="lista-equipos" class="equipos-container"></section>
+
+    <script>
+        let equipos = [];
+
+        fetch("../data/equipos.json")
+            .then(res => res.json())
+            .then(data => {
+                equipos = data;
+                renderEquipos(equipos);
+            });
+
+        function renderEquipos(lista) {
+            const cont = document.getElementById("lista-equipos");
+            cont.innerHTML = "";
+
+            lista.forEach(eq => {
+                cont.innerHTML += `
+                    <div class="equipo-card">
+                        <img src="${eq.escudo}" alt="${eq.nombre}">
+                        <h3>${eq.nombre}</h3>
+                        <p>${eq.region}</p>
+                    </div>
+                `;
+            });
+        }
+
+        document.getElementById("buscar-equipo").addEventListener("input", filtrar);
+        document.getElementById("filtro-region").addEventListener("change", filtrar);
+
+        function filtrar() {
+            const texto = document.getElementById("buscar-equipo").value.toLowerCase();
+            const region = document.getElementById("filtro-region").value;
+
+            const filtrados = equipos.filter(eq => {
+                let ok = true;
+
+                if (texto && !eq.nombre.toLowerCase().includes(texto)) ok = false;
+                if (region && eq.region !== region) ok = false;
+
+                return ok;
+            });
+
+            renderEquipos(filtrados);
+        }
+    </script>
+    <button class="btn-inicio" onclick="location.href='../index.html'">Volver al inicio</button>
+    <footer class="main-footer">
+        <p>FootballHub © 2024 — Proyecto académico inspirado en LaLiga</p>
+    </footer>
+
 </body>
-
-<div class="volver-inicio">
-    <a href="../index.html" class="btn-volver">← Volver al inicio</a>
-</div>
-
-<footer>
-    <p>FootballHub © 2026</p>
-</footer>
 
 </html>
