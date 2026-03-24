@@ -1,37 +1,192 @@
 [
     {
-        "local": "Mallorca",
-        "visitante": "Real Madrid",
-        "fecha": "2024-08-18"
+        "jornada": 38,
+        "fecha": "2024-05-24",
+        "hora": "21:00",
+        "estadio": "Estadi Montilivi",
+        "arbitro": "Alejandro Muñiz Ruiz",
+        "local": {
+            "nombre": "Girona FC",
+            "goles": 7,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Granada CF",
+            "goles": 0,
+            "goleadores": [],
+            "tarjetas": []
+        }
     },
     {
-        "local": "Real Madrid",
-        "visitante": "Real Valladolid",
-        "fecha": "2024-08-25"
+        "jornada": 38,
+        "fecha": "2024-05-25",
+        "hora": "14:00",
+        "estadio": "Estadio El Sadar",
+        "arbitro": "Mario Melero López",
+        "local": {
+            "nombre": "CA Osasuna",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Villarreal CF",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        }
     },
     {
-        "local": "Las Palmas",
-        "visitante": "Real Madrid",
-        "fecha": "2024-09-01"
+        "jornada": 38,
+        "fecha": "2024-05-25",
+        "hora": "16:15",
+        "estadio": "Reale Arena",
+        "arbitro": "José María Sánchez Martínez",
+        "local": {
+            "nombre": "Real Sociedad",
+            "goles": 0,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Atlético de Madrid",
+            "goles": 2,
+            "goleadores": [],
+            "tarjetas": []
+        }
     },
     {
-        "local": "Real Madrid",
-        "visitante": "Athletic Club",
-        "fecha": "2024-09-15"
+        "jornada": 38,
+        "fecha": "2024-05-25",
+        "hora": "18:30",
+        "estadio": "Power Horse Stadium",
+        "arbitro": "Mateo Busquets Ferrer",
+        "local": {
+            "nombre": "UD Almería",
+            "goles": 6,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Cádiz CF",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        }
     },
     {
-        "local": "Atlético de Madrid",
-        "visitante": "Real Madrid",
-        "fecha": "2024-09-29"
+        "jornada": 38,
+        "fecha": "2024-05-25",
+        "hora": "18:30",
+        "estadio": "Estadio de Vallecas",
+        "arbitro": "José Luis Munuera Montero",
+        "local": {
+            "nombre": "Rayo Vallecano",
+            "goles": 0,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Athletic Club",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        }
     },
     {
-        "local": "Real Madrid",
-        "visitante": "FC Barcelona",
-        "fecha": "2024-10-27"
+        "jornada": 38,
+        "fecha": "2024-05-25",
+        "hora": "21:00",
+        "estadio": "Estadio Santiago Bernabéu",
+        "arbitro": "Isidro Díaz de Mera Escuderos",
+        "local": {
+            "nombre": "Real Madrid CF",
+            "goles": 0,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Real Betis Balompié",
+            "goles": 0,
+            "goleadores": [],
+            "tarjetas": []
+        }
     },
     {
-        "local": "FC Barcelona",
-        "visitante": "Real Madrid",
-        "fecha": "2025-05-11"
+        "jornada": 38,
+        "fecha": "2024-05-26",
+        "hora": "14:00",
+        "estadio": "Coliseum Alfonso Pérez",
+        "arbitro": "Víctor García Verdura",
+        "local": {
+            "nombre": "Getafe CF",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "RCD Mallorca",
+            "goles": 2,
+            "goleadores": [],
+            "tarjetas": []
+        }
+    },
+    {
+        "jornada": 38,
+        "fecha": "2024-05-26",
+        "hora": "16:15",
+        "estadio": "Abanca-Balaídos",
+        "arbitro": "Miguel Ángel Ortiz Arias",
+        "local": {
+            "nombre": "RC Celta de Vigo",
+            "goles": 2,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Valencia CF",
+            "goles": 2,
+            "goleadores": [],
+            "tarjetas": []
+        }
+    },
+    {
+        "jornada": 38,
+        "fecha": "2024-05-26",
+        "hora": "16:15",
+        "estadio": "Estadio de Gran Canaria",
+        "arbitro": "Francisco José Hernández Maeso",
+        "local": {
+            "nombre": "UD Las Palmas",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "Deportivo Alavés",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        }
+    },
+    {
+        "jornada": 38,
+        "fecha": "2024-05-26",
+        "hora": "21:00",
+        "estadio": "Estadio Ramón Sánchez-Pizjuán",
+        "arbitro": "Javier Iglesias Villanueva",
+        "local": {
+            "nombre": "Sevilla FC",
+            "goles": 1,
+            "goleadores": [],
+            "tarjetas": []
+        },
+        "visitante": {
+            "nombre": "FC Barcelona",
+            "goles": 2,
+            "goleadores": [],
+            "tarjetas": []
+        }
     }
 ]

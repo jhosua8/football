@@ -1,30 +1,102 @@
 [
     {
         "nombre": "Real Madrid",
-        "pais": "España"
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+        "region": "Madrid"
     },
     {
-        "nombre": "FC Barcelona",
-        "pais": "España"
+        "nombre": "Barcelona",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
+        "region": "Cataluña"
+    },
+    {
+        "nombre": "Girona",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Escut_de_Girona.svg",
+        "region": "Cataluña"
     },
     {
         "nombre": "Atlético de Madrid",
-        "pais": "España"
-    },
-    {
-        "nombre": "Mallorca",
-        "pais": "España"
-    },
-    {
-        "nombre": "Real Valladolid",
-        "pais": "España"
-    },
-    {
-        "nombre": "Las Palmas",
-        "pais": "España"
+        "escudo": "https://upload.wikimedia.org/wikipedia/an/4/4d/Atletico_Madrid.png",
+        "region": "Madrid"
     },
     {
         "nombre": "Athletic Club",
-        "pais": "España"
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/9/98/Club_Athletic_Bilbao_logo.svg",
+        "region": "País Vasco"
+    },
+    {
+        "nombre": "Real Sociedad",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/f/f1/Real_Sociedad_logo.svg",
+        "region": "País Vasco"
+    },
+    {
+        "nombre": "Real Betis",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/1/13/Real_betis_logo.svg",
+        "region": "Andalucía"
+    },
+    {
+        "nombre": "Villarreal",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/4/4a/CD_Villareal_-_Escut.png",
+        "region": "Valencia"
+    },
+    {
+        "nombre": "Valencia",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/c/ce/Valenciacf.svg",
+        "region": "Valencia"
+    },
+    {
+        "nombre": "Alavés",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/f/f8/Deportivo_Alaves_logo_%282020%29.svg",
+        "region": "País Vasco"
+    },
+    {
+        "nombre": "Osasuna",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/0/03/OSASUNA.jpg",
+        "region": "Navarra"
+    },
+    {
+        "nombre": "Getafe",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Getafe_CF_Logo.png",
+        "region": "Madrid"
+    },
+    {
+        "nombre": "Celta",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/4/47/Escudo_RC_Celta_de_Vigo.svg",
+        "region": "Galicia"
+    },
+    {
+        "nombre": "Sevilla",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/3/3b/Sevilla_FC_logo.svg",
+        "region": "Andalucía"
+    },
+    {
+        "nombre": "Mallorca",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/6/64/Escudo_de_Mallorca_%28Espa%C3%B1a%29.jpg",
+        "region": "Islas Baleares"
+    },
+    {
+        "nombre": "Las Palmas",
+        "escudo": "https://upload.wikimedia.org/wikipedia/sco/2/20/UD_Las_Palmas_logo.svg",
+        "region": "Islas Canarias"
+    },
+    {
+        "nombre": "Rayo Vallecano",
+        "escudo": "https://upload.wikimedia.org/wikipedia/fr/4/41/Logo_Rayo_Vallecano_de_Madrid_2016.svg",
+        "region": "Madrid"
+    },
+    {
+        "nombre": "Cádiz",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Espa%C3%B1ol_FC_de_Cadiz_-_Escudo.png",
+        "region": "Andalucía"
+    },
+    {
+        "nombre": "Almería",
+        "escudo": "https://upload.wikimedia.org/wikipedia/en/4/4a/UD_Almeria_logo.svg",
+        "region": "Andalucía"
+    },
+    {
+        "nombre": "Granada",
+        "escudo": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Escudo_Granada_club_de_f%C3%BAtbol.png",
+        "region": "Andalucía"
     }
 ]
