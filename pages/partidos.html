@@ -3,35 +3,129 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Partidos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partidos - FootballHub</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/pages.css">
 </head>
 
-<body>
+<body class="home-body">
 
-    <h1>Partidos</h1>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/LaLiga_logo_2023.svg" alt="Logo LaLiga"
+                class="logo-laliga">
+            <h1 class="site-title">FootballHub</h1>
+        </div>
 
-    <select id="filtroEquipo">
-        <option value="">Todos los equipos</option>
-        <option value="FC Barcelona">FC Barcelona</option>
-        <option value="Real Madrid">Real Madrid</option>
-    </select>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="equipos.html">Equipos</a></li>
+                <li><a href="partidos.html" class="active">Partidos</a></li>
+                <li><a href="tabla.html">Tabla</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div id="listaPartidos"></div>
+    <section class="filtros">
+        <h2>Calendario de Partidos</h2>
 
-    <script type="module" src="../js/app.js"></script>
+        <div class="filtros-grid">
+            <div>
+                <label>Fecha</label>
+                <input type="date" id="filtro-fecha">
+            </div>
+
+            <div>
+                <label>Equipo</label>
+                <input type="text" id="filtro-equipo" placeholder="Ej: Barcelona">
+            </div>
+
+            <div>
+                <label>Resultado</label>
+                <select id="filtro-resultado">
+                    <option value="">Todos</option>
+                    <option value="local">Victoria local</option>
+                    <option value="empate">Empate</option>
+                    <option value="visitante">Victoria visitante</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section id="lista-partidos" class="partidos-container"></section>
+
+    <script>
+        let partidos = [];
+
+        fetch("../data/partidos.json")
+            .then(res => res.json())
+            .then(data => {
+                partidos = data;
+                renderPartidos(partidos);
+            });
+
+        function renderPartidos(lista) {
+            const cont = document.getElementById("lista-partidos");
+            cont.innerHTML = "";
+
+            lista.forEach(p => {
+                cont.innerHTML += `
+                    <div class="partido-card">
+                        <h3>${p.local.nombre} ${p.local.goles} - ${p.visitante.goles} ${p.visitante.nombre}</h3>
+                        <p><strong>Fecha:</strong> ${p.fecha} ${p.hora}</p>
+                        <p><strong>Estadio:</strong> ${p.estadio}</p>
+                        <p><strong>Árbitro:</strong> ${p.arbitro}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // FILTROS
+        document.getElementById("filtro-fecha").addEventListener("change", filtrar);
+        document.getElementById("filtro-equipo").addEventListener("input", filtrar);
+        document.getElementById("filtro-resultado").addEventListener("change", filtrar);
+
+        function filtrar() {
+            const fecha = document.getElementById("filtro-fecha").value;
+            const equipo = document.getElementById("filtro-equipo").value.toLowerCase();
+            const resultado = document.getElementById("filtro-resultado").value;
+
+            let filtrados = partidos.filter(p => {
+                let ok = true;
+
+                if (fecha && p.fecha !== fecha) ok = false;
+
+                if (equipo && !(
+                    p.local.nombre.toLowerCase().includes(equipo) ||
+                    p.visitante.nombre.toLowerCase().includes(equipo)
+                )) ok = false;
+
+                if (resultado === "local" && !(p.local.goles > p.visitante.goles)) ok = false;
+                if (resultado === "empate" && !(p.local.goles === p.visitante.goles)) ok = false;
+                if (resultado === "visitante" && !(p.local.goles < p.visitante.goles)) ok = false;
+
+                return ok;
+            });
+
+            renderPartidos(filtrados);
+        }
+    </script>
+    <div id="modal-partido" class="modal">
+        <div class="modal-content">
+            <span id="cerrar-modal" class="cerrar">&times;</span>
+            <div id="modal-detalle"></div>
+        </div>
+    </div>
+    <button class="btn-inicio" onclick="location.href='../index.html'">Volver al inicio</button>
+    <footer class="main-footer">
+        <p>FootballHub © 2024 — Proyecto académico inspirado en LaLiga</p>
+    </footer>
 
 </body>
-
-<div class="volver-inicio">
-    <a href="../index.html" class="btn-volver">← Volver al inicio</a>
-</div>
-
-<footer>
-    <p>FootballHub © 2026</p>
-</footer>
 
 </html>
