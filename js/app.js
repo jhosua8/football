@@ -1,81 +1,125 @@
-import { cargarJSON } from "./data.js";
-import { mostrarEquipos, mostrarTabla, mostrarPartidos } from "./ui.js";
-import { filtrarEquipos, ordenarTabla, filtrarPartidos, filtrarEquiposPorPais } from "./filters.js";
+// app.js
 
-document.addEventListener("DOMContentLoaded", async () => {
-    // equipos
-    if (document.getElementById("listaEquipos")) {
-        const equipos = await cargarJSON("../data/equipos.json");
+import { cargarEquipos, cargarPartidos, cargarTabla } from "./data.js";
+import { mostrarEquipos, mostrarPartidos, mostrarTabla } from "./ui.js";
+import { filtrarEquipos, filtrarPartidos, ordenarTabla } from "./filters.js";
+
+// Detectar página
+const pagina = document.body.dataset.page;
+
+// EQUIPOS
+if (pagina === "equipos") {
+    cargarEquipos().then(equipos => {
         mostrarEquipos(equipos);
 
-        const search = document.getElementById("search");
-        if (search) {
-            search.addEventListener("input", () => {
-                const filtrados = filtrarEquipos(equipos, search.value);
-                mostrarEquipos(filtrados);
-            });
-        }
-        //filtro por país
-        const paisFiltro = document.getElementById("filtroPais");
-        if (paisFiltro) {
-            paisFiltro.addEventListener("change", () => {
-                const pais = paisFiltro.value;
-                const filtrados = filtrarEquiposPorPais(equipos, paisFiltro.value);
-                mostrarEquipos(filtrados);
-            });
-        }
-    }
+        document.getElementById("buscar-equipo").addEventListener("input", () => {
+            const texto = document.getElementById("buscar-equipo").value;
+            const region = document.getElementById("filtro-region").value;
 
-    // tabla
-    if (document.getElementById("tabla")) {
-        const datos = await cargarJSON("../data/tabla.json");
-        mostrarTabla(datos);
-
-        document.querySelectorAll("#tabla th").forEach(th => {
-            th.addEventListener("click", () => {
-                const col = th.dataset.col;
-                const ordenados = ordenarTabla(datos, col);
-                mostrarTabla(ordenados);
-            });
+            const filtrados = filtrarEquipos(equipos, texto, region);
+            mostrarEquipos(filtrados);
         });
-    }
 
-    // partidos
-    if (document.getElementById("listaPartidos")) {
-        const partidos = await cargarJSON("../data/partidos.json");
+        document.getElementById("filtro-region").addEventListener("change", () => {
+            const texto = document.getElementById("buscar-equipo").value;
+            const region = document.getElementById("filtro-region").value;
+
+            const filtrados = filtrarEquipos(equipos, texto, region);
+            mostrarEquipos(filtrados);
+        });
+    });
+}
+
+// PARTIDOS
+if (pagina === "partidos") {
+    cargarPartidos().then(partidos => {
         mostrarPartidos(partidos);
 
-        const filtro = document.getElementById("filtroEquipo");
-        if (filtro) {
-            filtro.addEventListener("change", () => {
-                const filtrados = filtrarPartidos(partidos, filtro.value);
-                mostrarPartidos(filtrados);
-            });
-        }
-    }
-
-    // contacto
-    if (document.getElementById("formContacto")) {
-        const form = document.getElementById("formContacto");
-        const resultado = document.getElementById("resultado");
-
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const nombre = document.getElementById("nombre").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const mensaje = document.getElementById("mensaje").value.trim();
-
-            if (nombre === "" || email === "" || mensaje === "") {
-                resultado.textContent = "Por favor, completa todos los campos.";
-                resultado.style.color = "red";
-                return;
-            }
-
-            resultado.textContent = "Mensaje enviado correctamente.";
-            resultado.style.color = "green";
-
-            form.reset();
+        document.getElementById("filtro-fecha").addEventListener("change", () => {
+            aplicarFiltrosPartidos(partidos);
         });
+
+        document.getElementById("filtro-equipo").addEventListener("input", () => {
+            aplicarFiltrosPartidos(partidos);
+        });
+
+        document.getElementById("filtro-resultado").addEventListener("change", () => {
+            aplicarFiltrosPartidos(partidos);
+        });
+    });
+}
+
+function aplicarFiltrosPartidos(partidos) {
+    const fecha = document.getElementById("filtro-fecha").value;
+    const equipo = document.getElementById("filtro-equipo").value;
+    const resultado = document.getElementById("filtro-resultado").value;
+
+    const filtrados = filtrarPartidos(partidos, fecha, equipo, resultado);
+    mostrarPartidos(filtrados);
+}
+
+// TABLA
+if (pagina === "tabla") {
+    cargarTabla().then(tabla => {
+        mostrarTabla(tabla);
+
+        document.querySelectorAll(".orden-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const campo = btn.dataset.campo;
+                const ordenado = ordenarTabla(tabla, campo);
+                mostrarTabla(ordenado);
+            });
+        });
+    });
+}
+
+// PAGINACIÓN
+let paginaActual = 1;
+const equiposPorPagina = 8;
+
+function mostrarPagina(lista) {
+    const inicio = (paginaActual - 1) * equiposPorPagina;
+    const fin = inicio + equiposPorPagina;
+    const pagina = lista.slice(inicio, fin);
+
+    mostrarEquipos(pagina);
+    generarBotonesPaginacion(lista.length);
+}
+
+function generarBotonesPaginacion(total) {
+    const cont = document.querySelector(".paginacion");
+    cont.innerHTML = "";
+
+    const totalPaginas = Math.ceil(total / equiposPorPagina);
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+
+        if (i === paginaActual) {
+            btn.style.background = "#e62b2f";
+        }
+
+        btn.addEventListener("click", () => {
+            paginaActual = i;
+            aplicarFiltrosEquipos();
+        });
+
+        cont.appendChild(btn);
     }
-});
+}
+
+// FILTROS AVANZADOS
+function aplicarFiltrosEquipos() {
+    const texto = document.getElementById("buscar-equipo").value;
+    const region = document.getElementById("filtro-region").value;
+    const letra = document.getElementById("filtro-letra").value;
+
+    let filtrados = filtrarEquipos(equipos, texto, region);
+
+    if (letra) {
+        filtrados = filtrados.filter(eq => eq.nombre.startsWith(letra));
+    }
+
+    mostrarPagina(filtrados);
+}
