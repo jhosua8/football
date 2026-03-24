@@ -1,33 +1,557 @@
-h1 {
-    margin-bottom: 15px;
-    font-size: 24px;
+/* EQUIPOS */
+.equipos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    padding: 30px;
 }
 
-#listaEquipos,
-#tabla,
-#listaPartidos {
+.equipo-card {
+    background: white;
+    color: black;
+    border-radius: 12px;
     padding: 15px;
-    margin-top: 20px;
+    text-align: center;
+    transition: 0.3s;
 }
 
-#tabla,
-#listaPartidos {
-    background: #fff;
+.equipo-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.equipo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.equipos-filtros {
+    padding: 20px 30px;
+}
+
+.equipos-filtros h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: #ffeb00;
+}
+
+/* CONTACTO */
+.contacto-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 12px;
+    color: black;
+}
+
+.contacto-container input,
+.contacto-container textarea {
+    width: 100%;
     padding: 10px;
-    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-table {
+.contacto-container button {
+    width: 100%;
+    padding: 12px;
+    background: #003055;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contacto-container button:hover {
+    background: #e62b2f;
+}
+
+.error {
+    border: 2px solid red !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .filtros-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .equipos-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+}
+
+/* RESPONSIVE INDEX */
+@media (max-width: 768px) {
+
+    .main-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-banner {
+        height: 220px;
+    }
+
+    .hero-overlay h2 {
+        font-size: 26px;
+    }
+
+    .hero-overlay p {
+        font-size: 16px;
+    }
+
+    .cards-section {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+/* PARTIDOS */
+.partidos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.partido-card {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.partido-card:hover {
+    transform: scale(1.03);
+}
+
+.partido-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #003055;
+}
+
+.filtros {
+    padding: 20px 30px;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.filtros input,
+.filtros select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+.filtros h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: #ffeb00;
+}
+
+/* CONTENEDOR */
+.equipos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* TARJETAS */
+.equipo-card {
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.equipo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.equipo-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.equipo-card h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #003055;
+}
+
+.equipo-card p {
+    font-size: 14px;
+    color: #444;
+}
+
+/* FILTROS */
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+}
+
+.filtros-grid input,
+.filtros-grid select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* PAGINACIÓN */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 40px;
+}
+
+.paginacion button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #003055;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.paginacion button:hover {
+    background: #e62b2f;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CONTENEDOR DE PARTIDOS */
+.partidos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* TARJETA DE PARTIDO */
+.partido-card {
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.partido-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* EQUIPOS */
+.partido-equipos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.partido-equipos img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.partido-equipos h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #003055;
+}
+
+/* ESTADÍSTICAS */
+.partido-stats {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #ddd;
+}
+
+.partido-stats p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: #333;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CONTENEDOR PRINCIPAL */
+.tabla-container {
+    padding: 40px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.tabla-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: #ffeb00;
+}
+
+.ordenacion {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ordenacion button {
+    padding: 10px 18px;
+    background: #003055;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.ordenacion button:hover {
+    background: #e62b2f;
+}
+
+/* CONTENEDOR RESPONSIVE */
+#tabla-laliga {
     width: 100%;
     border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
 }
 
-th,
-td {
-    padding: 8px;
-    border-bottom: 1px solid #eee;
+/* CABECERA */
+#tabla-laliga thead {
+    background: #003055;
+    color: white;
 }
 
-th {
+#tabla-laliga th {
+    padding: 14px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* FILAS */
+#tabla-laliga td {
+    padding: 12px;
+    text-align: center;
+    font-size: 15px;
+    color: #222;
+}
+
+/* FILAS ALTERNADAS */
+#tabla-laliga tbody tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* HOVER */
+#tabla-laliga tbody tr:hover {
+    background: #ffeb00;
+    color: black;
+    transition: 0.2s;
+}
+
+/* SCROLL HORIZONTAL EN MÓVILES */
+@media (max-width: 768px) {
+    .tabla-container {
+        padding: 20px;
+    }
+
+    #tabla-laliga {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #tabla-laliga th,
+    #tabla-laliga td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIMACIÓN GENERAL */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TARJETAS DEL INDEX */
+.cards-section .card {
+    opacity: 0;
+    animation: fadeInCards 0.8s ease forwards;
+}
+
+.cards-section .card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.cards-section .card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cards-section .card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.cards-section .card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInCards {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIMACIÓN DE TARJETAS DE EQUIPOS */
+.equipo-card {
+    opacity: 0;
+    animation: popIn 0.5s ease forwards;
+}
+
+.equipo-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.equipo-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.equipo-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.equipo-card:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+/* ... puedes seguir si quieres */
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 25px;
+    border-radius: 15px;
+    animation: fadeIn 0.4s ease;
+}
+
+.cerrar {
+    float: right;
+    font-size: 28px;
     cursor: pointer;
 }

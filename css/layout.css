@@ -1,22 +1,80 @@
-header {
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
+/* Fondo con degradado azul → rojo */
+.home-body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #003055, #e62b2f);
+    color: white;
 }
 
-nav a {
-    margin-right: 15px;
-    color: #333;
+/* HEADER */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-laliga {
+    height: 55px;
+}
+
+.site-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* NAV */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: white;
     text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.main-nav a:hover {
+    color: #ffeb00;
 }
 
-footer {
-    margin-top: 40px;
+/* BANNER */
+.hero-banner {
+    height: 350px;
+    background-image: url('https://images.unsplash.com/photo-1508264165352-258a6f0d2f5b');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: #777;
-    font-size: 14px;
+}
+
+.hero-overlay h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.hero-overlay p {
+    font-size: 20px;
+    margin-top: 10px;
 }
